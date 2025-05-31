@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre Nós 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fef6f9, #fde2e4);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 300px;
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .login-container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #c92a50;
+    }
+
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .login-container button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #c92a50;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #a91e3a;
+    }
+
+    .heart {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 2rem;
+      animation: float 2s infinite ease-in-out;
+      color: #ff6b81;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .section {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 700px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin: 5px;
+      border-radius: 10px;
+    }
+
+    .letter {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: #fde2e4;
+      border-radius: 10px;
+    }
+
+    .playlist iframe {
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+    }
+
+    .quiz button {
+      background: #c92a50;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" id="loginBox">
+    <div class="heart">❤️</div>
+    <h1>Entre Nós</h1>
+    <p>“Entre milhões de pessoas, é você que carrego no bolso do peito.”</p>
+    <input type="password" id="password" placeholder="Digite a senha...">
+    <button onclick="checkPassword()">Entrar</button>
+  </div>
+
+  <div id="mainContent" class="hidden">
+    <div class="section">
+      <h2>📸 Galeria de Memórias</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/100" alt="foto1">
+        <img src="https://via.placeholder.com/100" alt="foto2">
+        <img src="https://via.placeholder.com/100" alt="foto3">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💌 Cartas Secretas</h2>
+      <div class="letter" id="letter1">(Desbloqueia em 2025-06-12)</div>
+    </div>
+
+    <div class="section">
+      <h2>🎶 Playlist do Amor</h2>
+      <div class="playlist">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX50QitC6Oqtn?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💖 Quiz do Casal</h2>
+      <div class="quiz">
+        <p>Qual foi o nosso primeiro filme juntos?</p>
+        <button onclick="alert('Acertou! 🥰')">A Culpa é das Estrelas</button>
+        <button onclick="alert('Hmmm... tenta de novo! 😅')">Titanic</button>
+        <button onclick="alert('Hmmm... tenta de novo! 😅')">La La Land</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const senhaCorreta = "amor2024";
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === senhaCorreta) {
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("mainContent").classList.remove("hidden");
+        checkLetterDate();
+      } else {
+        alert("Senha incorreta. Tente de novo, meu amor! 💌");
+      }
+    }
+
+    function checkLetterDate() {
+      const today = new Date();
+      const unlockDate = new Date("2025-06-12");
+      const letter1 = document.getElementById("letter1");
+      if (today >= unlockDate) {
+        letter1.textContent = "Minha vida mudou desde que você chegou. Te amo pra sempre. 💖";
+      } else {
+        letter1.textContent = "Carta secreta... volte no Dia dos Namorados!";
+      }
+    }
+  </script>
+</body>
+</html>
